@@ -17,6 +17,12 @@ body {
   overflow-x: hidden;
 }
 
+#root,
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* “glass” teal radial gradient + vignette */
 body {
   background:
@@ -321,5 +327,9 @@ body {
 
   .composer textarea {
     width: 75% !important;
+  }
+
+  body {
+    background-attachment: scroll;
   }
 }
