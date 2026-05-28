@@ -59,6 +59,8 @@ h3 {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 12px;
   align-items: start;
+  justify-content: center;
+  justify-items: center;
 }
 
 /* Peel-off animation */
@@ -87,7 +89,7 @@ h3 {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   /* center the whole page content area */
-  max-width: 100vw;
+  max-width: 100%;
   margin: 0 auto;
   padding: 12px 100px;
   /* center text by default (title, timestamps, headings) */
