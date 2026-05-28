@@ -281,33 +281,25 @@ body {
   padding: 0;
 }
 
-/* Phone fix: reduce side padding so composer stays centered */
+/* Mobile layout */
 @media (max-width: 750px) {
-  .appShell,
-  .notesGrid,
-  .noteBox,
-  .composer {
-    max-width: 95%;
-    box-sizing: border-box;
-  }
-
+  /* Keep the page from being too wide on phones */
   .appShell {
-    padding: 12px 10px; /* reduce side padding (also helps centering) */
-    max-width: 100%;
+    padding: 12px 12px !important; /* overrides 12px 100px */
+    max-width: 100% !important;
   }
 
+  /* Center the grid + make smaller notes */
   .notesGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 6px;
-  }
-
-  .notesGrid > div {
-    min-width: 0;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 1px;
+    justify-content: center; /* centers the grid block */
+    justify-items: center; /* centers each note in its cell */
   }
 
   .noteBox {
-    width: 140px;
-    height: 140px;
+    width: 140px !important;
+    height: 140px !important;
     padding: 10px;
   }
 
@@ -320,7 +312,12 @@ body {
     padding: 6px 8px;
   }
 
+  /* Make the composer usable on phones */
+  .composer {
+    width: min(520px, 95vw);
+  }
+
   .composer textarea {
-    width: 75%;
+    width: 75% !important;
   }
 }
