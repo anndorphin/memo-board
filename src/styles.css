@@ -275,3 +275,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Phone fix: reduce side padding so composer stays centered */
+@media (max-width: 600px) {
+  .appShell {
+    padding: 12px 16px; /* instead of 12px 100px */
+  }
+
+  .composer textarea {
+    width: 75%;
+  }
+}
