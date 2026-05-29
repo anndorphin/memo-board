@@ -13,6 +13,8 @@ type Note = {
   color: NoteColor;
 };
 
+const NOTES_STORAGE_KEY = "memo-notes-v1";
+
 export default function App() {
   const [now, setNow] = useState<number>(Date.now());
   const [text, setText] = useState<string>("");
@@ -67,6 +69,22 @@ export default function App() {
   }
 
   useEffect(() => {
+    try {
+      const raw = localStorage.getItem(NOTES_STORAGE_KEY);
+      if (!raw) return;
+
+      const parsed = JSON.parse(raw) as Note[];
+
+      // Clean up transient UI state (optional but recommended)
+      const cleaned = parsed.map((n) => ({ ...n, isDeleting: false }));
+
+      setNotes(cleaned);
+    } catch (err) {
+      console.warn("Failed to load notes from localStorage", err);
+    }
+  }, []);
+
+  useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
   }, []);
@@ -78,6 +96,17 @@ export default function App() {
     if (h >= 12 && h <= 17) return "Good Afternoon!";
     return "Good Evening!"; // 18:00–03:59
   }
+
+  useEffect(() => {
+    try {
+      // Don’t persist isDeleting (optional but recommended)
+      const toSave = notes.map(({ isDeleting, ...rest }) => rest);
+
+      localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(toSave));
+    } catch (err) {
+      console.warn("Failed to save notes to localStorage", err);
+    }
+  }, [notes]);
 
   return (
     <div className="appShell">
