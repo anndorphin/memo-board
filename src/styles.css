@@ -331,11 +331,20 @@ body {
     max-width: 100% !important;
   }
 
+  /* Temporary test */
+  .composer {
+    outline: 3px solid red;
+  }
+  .notesGrid {
+    outline: 3px solid blue;
+  }
+
   /* Center the grid + make smaller notes */
   .notesGrid {
     grid-template-columns: repeat(auto-fit, 140px) !important;
     gap: 15px; /* pick what looks good */
     justify-content: center; /* centers the whole grid */
+    align-items: start;
   }
 
   .noteBox {
