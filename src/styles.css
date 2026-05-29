@@ -156,7 +156,7 @@ h3 {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* Square note */
@@ -331,20 +331,29 @@ body {
     max-width: 100% !important;
   }
 
-  /* Temporary test */
+  /* Temporary test
   .composer {
     outline: 3px solid red;
   }
   .notesGrid {
-    outline: 3px solid blue;
+    outline: 3px solid blue; 
+  } */
+
+  .notesGrid > div {
+    min-width: 0;
   }
 
   /* Center the grid + make smaller notes */
   .notesGrid {
-    grid-template-columns: repeat(auto-fit, 140px) !important;
-    gap: 15px; /* pick what looks good */
-    justify-content: center; /* centers the whole grid */
-    align-items: start;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(2, 140px) !important; /* exactly 2 columns */
+    gap: 20px; /* choose your gap */
+    justify-content: start; /* not needed anymore, but harmless */
+    justify-items: stretch;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   .noteBox {
