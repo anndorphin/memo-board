@@ -85,20 +85,42 @@ h3 {
   animation: fallOff 450ms ease-in forwards;
 }
 
-.appShell {
+/* .appShell {
   min-height: 97vh;
   display: flex;
   flex-direction: column;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 12px 100px;
+  
+  text-align: center;
+}  */
+
+.appShell {
+  min-height: 97vh;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
   /* frosted glass */
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  /* center the whole page content area */
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 12px 100px;
-  /* center text by default (title, timestamps, headings) */
+
+  /* container sizing */
+  width: 95%;
+  margin: 0 auto; /* centers the container */
+
+  /* small, consistent padding */
+  padding: 5vw;
+
   text-align: center;
 }
 
@@ -110,7 +132,7 @@ h3 {
 }
 
 .composer {
-  width: min(520px, 92vw); /* centered “bottom middle” width */
+  width: min(520px, 92%); /* centered “bottom middle” width */
   margin: 0 auto; /* centers horizontally */
 }
 
@@ -322,7 +344,7 @@ body {
 
   /* Make the composer usable on phones */
   .composer {
-    width: min(520px, 95vw);
+    width: min(520px, 95%);
   }
 
   .composer textarea {
