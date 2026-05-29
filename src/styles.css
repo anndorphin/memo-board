@@ -24,15 +24,15 @@ body {
 }
 
 /* “glass” teal radial gradient + vignette */
-body {
+/* body {
   background:
-    /* soft highlight */ radial-gradient(
+    /* soft highlight  radial-gradient(
       circle at 50% 35%,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0.18) 62%,
       rgba(255, 255, 255, 0) 75%
     ),
-    /* main pale teal glow */
+    /* main pale teal glow 
       radial-gradient(
         circle at 50% 40%,
         #c9f3f0 0%,
@@ -41,6 +41,30 @@ body {
         #1a4e52 100%
       );
   background-attachment: fixed;
+} */
+
+body {
+  background: none; /* stop the body background */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 50% 35%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.18) 62%,
+      rgba(255, 255, 255, 0) 75%
+    ),
+    radial-gradient(
+      circle at 50% 40%,
+      #c9f3f0 0%,
+      #9fe3df 35%,
+      #4aa9a6 75%,
+      #1a4e52 100%
+    );
 }
 
 h1 {
@@ -85,41 +109,19 @@ h3 {
   animation: fallOff 450ms ease-in forwards;
 }
 
-/* .appShell {
+.appShell {
   min-height: 97vh;
   display: flex;
   flex-direction: column;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  
+
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
   max-width: 100%;
   margin: 0 auto;
-  padding: 12px 100px;
-  
-  text-align: center;
-}  */
-
-.appShell {
-  min-height: 97vh;
-  display: flex;
-  flex-direction: column;
-
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-
-  /* frosted glass */
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  /* container sizing */
-  width: 95%;
-  margin: 0 auto; /* centers the container */
-
-  /* small, consistent padding */
-  padding: 5vw;
+  padding: 12px 5vw;
 
   text-align: center;
 }
